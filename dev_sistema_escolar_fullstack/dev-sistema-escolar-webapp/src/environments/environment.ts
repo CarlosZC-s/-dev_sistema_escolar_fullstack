@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  url_api: "http://127.0.0.1:8000"
+  production: true,
+  // CAMBIA ESTO (Antes decía http://127.0.0.1:8000)
+  url_api: 'https://CarlosZC.pythonanywhere.com' 
 };
