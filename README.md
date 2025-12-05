@@ -17,7 +17,7 @@ El objetivo principal es resolver la gestión de conferencias, talleres y semina
 * **Base de Datos:** MySQL / SQLite (según entorno).
 * **Despliegue:** PythonAnywhere / Render.
 
-## 🛠 Funcionalidades Principales
+## Funcionalidades Principales
 
 ### 1. Gestión de Eventos (CRUD Completo)
 Módulo central para la administración de actividades académicas.
