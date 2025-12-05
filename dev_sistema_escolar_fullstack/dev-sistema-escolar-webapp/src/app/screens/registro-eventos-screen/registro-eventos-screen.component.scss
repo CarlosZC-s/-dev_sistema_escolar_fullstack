@@ -1,0 +1,211 @@
+// =========================================
+// 1. CONFIGURACIÓN GLOBAL (Basado en tu archivo)
+// =========================================
+$font-main: 'Nexa', sans-serif;
+$font-bold: 'Nexa-Bold', sans-serif;
+$color-dark: #231F20; // Color principal de texto
+$color-blue: #0092B8; // Color de acción (editar)
+$color-red: #E84150; // Color de borrar/cancelar
+$shadow-card: 0 4px 24px 0 rgba(0, 0, 0, 0.07);
+$radius-card: 12px;
+
+// =========================================
+// 2. ESTRUCTURA Y SIDEBAR
+// =========================================
+
+// Adaptamos el wrapper para que respete el sidebar como en "main-content-maestros"
+.full-screen-wrapper {
+  padding: 2rem;
+  background-color: #f8f9fa; // Fondo suave para que resalte la card blanca
+  min-height: 100vh;
+
+  // Lógica del sidebar del archivo que me pasaste
+  margin-left: 220px;
+  transition: margin-left 0.3s;
+
+  @media (max-width: 991px) {
+    margin-left: 0;
+  }
+}
+
+// =========================================
+// 3. TARJETA PRINCIPAL (Card Container)
+// =========================================
+// Esto reemplaza a .table-responsive para que el formulario se vea igual a la tabla
+.card-container {
+  width: 100%;
+  max-width: 95vw; // Ajuste similar a tus media queries
+  margin: 0 auto;
+  background: #fff;
+  border-radius: $radius-card;
+  box-shadow: $shadow-card;
+  padding: 2rem;
+
+  @media (max-width: 992px) {
+    width: 100%;
+    padding: 1.5rem;
+  }
+}
+
+// =========================================
+// 4. TIPOGRAFÍA Y TÍTULOS (La parte clave)
+// =========================================
+
+.card-header-custom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+
+  .header-text {
+    width: 100%;
+
+    // Aplicando estilos de .title-perfil / .title-table
+    .title-custom {
+      font-family: $font-bold;
+      color: $color-dark;
+      text-transform: capitalize;
+      line-height: 1.1;
+      text-wrap: balance;
+      margin-bottom: 0.5rem;
+
+      // Lógica CLAMP exacta de tu archivo
+      font-size: clamp(1.375rem, 1.1rem + 1.2vw, 2.25rem);
+      text-align: left;
+
+      // Ajustes responsive copiados
+      @media (max-width: 575px) {
+        text-align: center;
+        font-size: clamp(1.35rem, 1.1rem + 1.6vw, 2rem);
+      }
+    }
+
+    .subtitle-custom {
+      font-family: $font-main;
+      font-size: 16px;
+      color: lighten($color-dark, 20%);
+
+      @media (max-width: 575px) {
+        text-align: center;
+        display: block;
+      }
+    }
+  }
+
+  // Botón de regresar
+  .clean-back-btn {
+    color: $color-dark;
+    transform: scale(1.1);
+  }
+}
+
+// =========================================
+// 5. INPUTS Y FORMULARIOS (Estilo Alumnos)
+// =========================================
+
+// Forzamos la tipografía Nexa en los inputs de Material
+:host ::ng-deep {
+
+  .mat-mdc-form-field {
+    font-family: $font-main !important;
+
+    // Quitar fondo gris y usar estilo outline suave o fill blanco
+    .mat-mdc-text-field-wrapper {
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px; // Un poco menos que la card
+    }
+
+    // Texto del input
+    input.mat-mdc-input-element,
+    textarea.mat-mdc-input-element {
+      font-family: $font-main !important;
+      color: $color-dark !important;
+      font-size: 15px !important; // Igual a .mat-mdc-cell
+    }
+
+    // Labels y Placeholders
+    .mdc-floating-label,
+    .mat-mdc-select-value {
+      font-family: $font-main !important;
+      color: lighten($color-dark, 30%) !important;
+    }
+
+    // Iconos
+    .mat-icon {
+      color: $color-blue; // Usamos el azul de tus acciones
+    }
+
+    // Eliminar la línea inferior por defecto para un look más limpio (tipo card)
+    .mdc-line-ripple {
+      display: none;
+    }
+  }
+
+  // Checkboxes
+  .mat-mdc-checkbox {
+    font-family: $font-main !important;
+    color: $color-dark;
+  }
+}
+
+// =========================================
+// 6. SECCIONES INTERNAS
+// =========================================
+
+// Línea punteada divisoria
+.ticket-row-highlight {
+  .border-right-dashed {
+    border-right: 2px dashed #e0e0e0;
+
+    @media (max-width: 768px) {
+      border-right: none;
+      border-bottom: 2px dashed #e0e0e0;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+    }
+  }
+}
+
+// Sección de audiencia
+.audience-section {
+  background: transparent; // Usando el color de tu .alert-warning
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+
+  .audience-label {
+    font-family: $font-bold;
+    color: $color-dark;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+}
+
+// Mensajes de error
+.error-msg {
+  font-family: $font-main;
+  color: $color-red; // Color .td-eliminar
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+// =========================================
+// 7. BOTONES (Basado en td-editar/eliminar)
+// =========================================
+
+.btn-primary-custom {
+  background-color: $color-blue !important; // El azul de .td-editar
+  color: #fff !important;
+  font-family: $font-bold !important;
+  font-size: 18px;
+  padding: 1.2rem 2.5rem !important;
+  border-radius: 30px; // Bordes muy redondos, moderno
+  box-shadow: 0 4px 10px rgba($color-blue, 0.3);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: darken($color-blue, 10%) !important;
+    transform: translateY(-2px);
+  }
+}

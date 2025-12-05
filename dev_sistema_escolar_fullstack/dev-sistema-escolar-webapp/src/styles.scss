@@ -1,0 +1,356 @@
+// PALETTE SUPPORT FOR ALL MODULES
+.dashboard-content,
+.table-responsive,
+table,
+.mat-elevation-z8,
+.table {
+  background: var(--table-bg, #fff) !important;
+  color: var(--text-main, #222) !important;
+}
+
+.mat-mdc-header-cell,
+th {
+  background: var(--table-header-bg, #cfe2ff) !important;
+  color: var(--text-main, #222) !important;
+}
+
+// DARK PALETTE VARIABLES (Elegant)
+
+[data-theme="dark"] {
+  --table-bg: #181a1b;
+  --table-header-bg: #222326;
+  --table-header-border: #2c2d2f;
+  --text-main: #f5f6fa;
+  --sidebar-bg: #181a1b;
+  --sidebar-active-bg: #222326;
+  --sidebar-text: #d1d1d1;
+  --primary: #3a7afe;
+  --secondary: #bdbdbd;
+  --danger: #e57373;
+  --success: #81c784;
+  --accent: #757575;
+  --alert-bg: #222326; // Fondo oscuro para el banner
+  --alert-text: #f5f6fa; // Texto claro para el banner
+  --input-bg: #2c2d2f; // Fondo del buscador
+  --icon-color: #f5f6fa; // Icono de lupa blanco
+  --paginator-bg: #181a1b;
+}
+
+// LIGHT PALETTE VARIABLES (Modern)
+[data-theme="light"] {
+  --table-bg: #fff;
+  --table-header-bg: #cfe2ff;
+  --table-header-border: #231F20;
+  --text-main: #222;
+  --sidebar-bg: #eaf1fb;
+  --sidebar-active-bg: #cfe2ff;
+  --sidebar-text: #222;
+  --primary: #1976d2;
+  --secondary: #ff9800;
+  --danger: #ff5b5b;
+  --success: #43a047;
+  --accent: #7c4dff;
+  --alert-bg: #cfe2ff; // El azul original de bootstrap
+  --alert-text: #084298; // Texto azul oscuro original
+  --input-bg: #fff; // Fondo blanco normal
+  --icon-color: #222; // Icono oscuro
+  --paginator-bg: #fff;
+}
+
+// ==========================================
+// VARIABLES
+// ==========================================
+$color-primary: #1976d2;
+$color-secondary: #ff9800;
+$color-error: #ff5b5b;
+$color-success: #43a047;
+$color-text: #222;
+$color-bg: #f5f5f5;
+
+$font-main: 'Nexa', 'Roboto', Arial, sans-serif;
+$font-size-base: 16px;
+$font-size-sm: 0.875rem;
+$font-size-lg: 1.25rem;
+$spacing-base: 8px;
+
+// ==========================================
+// MIXINS
+// ==========================================
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ==========================================
+// FONT FACE DEFINITIONS
+// ==========================================
+
+@font-face {
+  font-family: 'Nexa-Bold';
+  src: url('/assets/fonts/NexaBold.eot');
+  src: url('/assets/fonts/NexaBold.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/NexaBold.woff2') format('woff2'),
+    url('/assets/fonts/NexaBold.woff') format('woff'),
+    url('/assets/fonts/NexaBold.ttf') format('truetype'),
+    url('/assets/fonts/NexaBold.svg#NexaBold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nexa-Light';
+  src: url('/assets/fonts/NexaLight.eot');
+  src: url('/assets/fonts/NexaLight.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/NexaLight.woff2') format('woff2'),
+    url('/assets/fonts/NexaLight.woff') format('woff'),
+    url('/assets/fonts/NexaLight.ttf') format('truetype'),
+    url('/assets/fonts/NexaLight.svg#NexaLight') format('svg');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nexa';
+  src: url('/assets/fonts/NexaRegular.eot');
+  src: url('/assets/fonts/NexaRegular.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/NexaRegular.woff2') format('woff2'),
+    url('/assets/fonts/NexaRegular.woff') format('woff'),
+    url('/assets/fonts/NexaRegular.ttf') format('truetype'),
+    url('/assets/fonts/NexaRegular.svg#NexaRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+// ==========================================
+// RESET CSS
+// ==========================================
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  font-size: $font-size-base;
+  background-color: $color-bg;
+  color: $color-text;
+}
+
+body {
+  min-height: 100vh;
+  font-family: $font-main;
+  background-color: $color-bg;
+  color: $color-text;
+  line-height: 1.5;
+  letter-spacing: 0.01rem;
+}
+
+// ==========================================
+// TYPOGRAPHY
+// ==========================================
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Nexa-Bold', $font-main;
+  color: $color-primary;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+p,
+span,
+label,
+input,
+button {
+  font-family: $font-main;
+}
+
+// ==========================================
+// UTILITIES & FEEDBACK
+// ==========================================
+.invalid-feedback,
+.feedback-error {
+  display: block !important;
+  width: 100%;
+  font-size: $font-size-sm;
+  color: $color-error;
+  font-family: $font-main;
+  text-align: left;
+}
+
+.feedback-success {
+  display: block !important;
+  width: 100%;
+  font-size: $font-size-sm;
+  color: $color-success;
+  font-family: $font-main;
+  text-align: left;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 15px;
+  }
+
+  body {
+    padding: $spacing-base;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 430px) {
+  html {
+    font-size: 15px;
+  }
+
+  body {
+    padding: 0 !important;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+
+.button {
+  @include flex-center;
+  padding: $spacing-base $spacing-base * 2;
+  background: $color-primary;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: $font-size-base;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover,
+  &:focus {
+    background: darken($color-primary, 10%);
+  }
+}
+
+/* =========================================================
+   FIXES GLOBALES PARA MODO OSCURO (Force Overrides)
+   ========================================================= */
+
+[data-theme="dark"] {
+
+  /* 1. Forzar fondo oscuro en el contenedor de la tabla/paginador */
+  .table-scroll-wrapper {
+    background-color: var(--table-bg) !important;
+    border: 1px solid var(--table-header-border);
+    /* Opcional: borde sutil */
+  }
+
+  /* 2. Arreglar el PAGINADOR (Quitamos el fondo blanco nativo) */
+  .mat-mdc-paginator {
+    background-color: var(--table-bg) !important;
+    color: var(--text-main) !important;
+  }
+
+  /* Textos y selectores del paginador */
+  .mat-mdc-paginator-container,
+  .mat-mdc-paginator-page-size-label,
+  .mat-mdc-paginator-range-label,
+  .mat-mdc-select-value {
+    color: var(--text-main) !important;
+  }
+
+  /* Iconos de flechas (< >) */
+  .mat-mdc-paginator-icon {
+    fill: var(--text-main) !important;
+  }
+
+  /* Flecha del dropdown de "Items per page" */
+  .mat-mdc-select-arrow {
+    color: var(--text-main) !important;
+  }
+
+  /* 3. Arreglar el BUSCADOR (Input) */
+  .mat-mdc-form-field {
+
+    /* Fondo del input */
+    .mdc-text-field {
+      background-color: #2c2d2f !important;
+      /* Un gris un poco más claro que el fondo */
+      border-radius: 4px;
+    }
+
+    /* Texto que escribes */
+    input.mat-mdc-input-element {
+      color: var(--text-main) !important;
+      caret-color: var(--primary) !important;
+      /* Color de la barrita que parpadea */
+    }
+
+    /* Placeholder ("Buscar alumno...") */
+    .mat-mdc-input-element::placeholder {
+      color: #999 !important;
+    }
+
+    /* Label flotante */
+    .mdc-floating-label {
+      color: #ccc !important;
+    }
+
+    /* Icono de Lupa */
+    .mat-mdc-form-field-icon-suffix {
+      color: var(--text-main) !important;
+    }
+
+    /* Línea inferior (subrayado) */
+    .mdc-line-ripple::before {
+      border-bottom-color: #666 !important;
+    }
+  }
+
+  /* 4. Arreglar el BANNER AZUL (Alert) */
+  .alert-primary {
+    background-color: #1e252e !important;
+    /* Azul muy oscuro/grisáceo */
+    color: #a6c8ff !important;
+    /* Texto azul claro */
+    border-color: #2c3e50 !important;
+  }
+
+  /* Si usas alert-warning (amarillo) en otro lado */
+  .alert-warning {
+    background-color: #332b00 !important;
+    /* Amarillo oscuro */
+    color: #ffecb3 !important;
+    border-color: #665500 !important;
+  }
+
+  /* Asegurar que el título dentro del alert se vea */
+  .alert .title-table {
+    color: inherit !important;
+    /* Hereda el color claro del alert */
+  }
+
+  /* 5. Títulos Generales (Bienvenido, Rol) */
+  .title-perfil,
+  .title-table {
+    color: var(--text-main) !important;
+  }
+}

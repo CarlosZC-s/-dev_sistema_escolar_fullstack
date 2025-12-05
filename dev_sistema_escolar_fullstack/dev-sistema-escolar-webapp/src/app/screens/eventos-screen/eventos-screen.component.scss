@@ -1,0 +1,194 @@
+// =========================================
+// AJUSTES DE LAYOUT (SIDEBAR)
+// =========================================
+.main-content {
+  margin-left: 220px;
+  transition: margin-left 0.3s;
+}
+
+@media (max-width: 991px) {
+  .main-content {
+    margin-left: 0;
+  }
+}
+
+.wrapper {
+  height: auto;
+  min-height: 100vh;
+  // Usamos las variables globales si están definidas, si no, el gris default
+  background-color: var(--background-main, #f4f7fb);
+}
+
+// =========================================
+// TÍTULOS Y TEXTOS (FUENTE NEXA)
+// =========================================
+.title-perfil {
+  margin-left: 3rem;
+  font-size: clamp(1.375rem, 1.1rem + 1.2vw, 2.25rem);
+  /* ~22–36px */
+  text-align: left;
+  font-family: 'Nexa-Bold', sans-serif;
+  color: #231F20;
+  display: block;
+  line-height: 1.1;
+  text-transform: capitalize;
+}
+
+.title-table {
+  // Misma clase exacta que en alumnos
+  margin-left: 0; // En el alert va centrado
+  font-size: 28px;
+  text-align: center;
+  font-family: 'Nexa-Bold', sans-serif;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+  opacity: 1;
+  color: #231F20;
+}
+
+// =========================================
+// ALERTAS (AZUL Y AMARILLA)
+// =========================================
+.alert-primary {
+  // El azulito exacto de tu imagen de Alumnos
+  background-color: #dbeafe; // Un azul muy suave (Tailwind blue-100 aprox)
+  border: none;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.07);
+  display: flex;
+  justify-content: center;
+}
+
+.alert-warning {
+  font-family: 'Nexa', sans-serif;
+  font-size: 16px;
+  color: #231F20;
+  text-align: center;
+  background: #FFF3CD;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.07);
+  width: 100%;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+// =========================================
+// TABLA (ESTILOS EXACTOS DE ALUMNOS)
+// =========================================
+.container {
+  max-width: 90vw;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.table-scroll-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  min-height: 1px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+}
+
+table {
+  min-width: 1200px;
+  width: 100%;
+  padding-bottom: 1.5rem;
+}
+
+::ng-deep .mat-mdc-table {
+  table-layout: fixed !important;
+}
+
+// --- CABECERA DE TABLA (Igual a Alumnos) ---
+.mat-mdc-header-cell {
+  border-bottom-color: #231F20;
+  font-family: 'Nexa-Bold' !important;
+  font-size: 18px; // Tamaño exacto de Alumnos
+  text-align: left;
+  letter-spacing: 0px;
+  opacity: 1;
+  // En tu alumnos.scss usas una variable, aquí forzamos el color oscuro o blanco según tu tema
+  // Si tu tema es oscuro usa #fff, si es claro usa #231F20.
+  // Basado en la imagen, el texto del header es NEGRO.
+  color: #231F20 !important;
+  background-color: #dbeafe; // Fondo azulito para el header (igual que el alert)
+}
+
+// --- CELDAS DE TABLA (Igual a Alumnos) ---
+.mat-mdc-cell {
+  text-align: left;
+  font-family: 'Nexa' !important;
+  font-size: 15px !important; // Tamaño exacto de Alumnos
+  letter-spacing: 0px !important;
+  color: #231F20 !important; // Texto negro/gris oscuro
+  opacity: 1 !important;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+// =========================================
+// BOTONES DE ACCIÓN
+// =========================================
+.td-editar {
+  color: #0092B8 !important; // Turquesa
+  cursor: pointer !important;
+  font-size: 20px !important;
+  text-align: center;
+
+  &:hover {
+    color: #006179 !important;
+    font-size: 25px !important;
+  }
+}
+
+.td-eliminar {
+  color: #E84150 !important; // Rojo
+  cursor: pointer !important;
+  font-size: 20px !important;
+  text-align: center;
+
+  &:hover {
+    color: #ce1626 !important;
+    font-size: 25px !important;
+  }
+}
+
+// =========================================
+// RESPONSIVE (MEDIA QUERIES DE ALUMNOS)
+// =========================================
+@media (max-width: 992px) and (min-width: 805px) {
+  .container {
+    max-width: 95vw;
+    width: 130%;
+  }
+
+  .table-responsive {
+    max-width: 95vw;
+    width: 100%;
+  }
+
+  .table {
+    min-width: 700px;
+  }
+}
+
+@media (max-width: 575px) {
+
+  .title-perfil,
+  .title-table {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .mat-mdc-header-cell {
+    font-size: 16px;
+  }
+
+  .mat-mdc-cell {
+    font-size: 14px !important;
+  }
+}
